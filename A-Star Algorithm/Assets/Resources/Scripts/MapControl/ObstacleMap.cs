@@ -78,8 +78,16 @@ public class ObstacleMap : TileMapController
                 }
                 else { /* Do nothing*/ }
             }
+            if (foundTile != null || foundTile != default) { break; }
+            if (searchIdx <= 0) { break; }
+            searchIdx--;
         }       //loop : 목적지를 찾는 루프
+        passableTerrains[1] = foundTile;
         //} 출발지와 목적지를 설정해서 타일을 배치한다.
+
+        //{ 출발지와 목적지에 지물을 추가한다.
+        //GameObject changeTilePrefab = ResManager.Instance.obs;
+        //} 출발지와 목적지에 지물을 추가한다.
     }       //DoStart
 
 
