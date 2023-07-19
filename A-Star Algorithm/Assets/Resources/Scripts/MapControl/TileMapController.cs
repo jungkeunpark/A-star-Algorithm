@@ -13,10 +13,10 @@ public class TileMapController : MonoBehaviour
     public virtual void InitAwake(MapBoard mapController_)
     {
         mapController = mapController_;
-        tileMap = gameObject.FindChildComponent<Tilemap>("TerrainTilemap");
+        tileMap = gameObject.FindChildComponent<Tilemap>(tileMapObjName);
 
         //직사각형 형태로 초기화 된 타일을 캐싱해서 가지고 있는다.
-        allTileobjs = tileMap.gameObject.GetChildrenObjs();
+        allTileobjs = tileMap.gameObject.GetChildrenObjs(); 
         if (allTileobjs.IsValid())
         {
             allTileobjs.Sort(GFunc.CompareTileObjToLocalPos2D);

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TerrainMap : TileMapController
 {
-    private const string TERRAIN_TILEMAP_OBJ_NAME = "TerrainTilemap";
+    private const string TERRAIN_TILEMAP_OBJ_NAME = "TerrainTilemap" +
+        "";
 
     private Vector2Int mapCellSize = default;
     private Vector2 mapCellGap = default;
@@ -49,7 +50,7 @@ public class TerrainMap : TileMapController
             [RDefine.TERRAIN_PREF_OCEAN];
 
         //타일맵중에 어는 정도를 바다로 교체할 것인지 결정한다.
-        const float CHANGE_PERCENTAGE = 15.0f;
+        const float CHANGE_PERCENTAGE = 35.0f;
         float correctChangePercentage = allTileobjs.Count * (CHANGE_PERCENTAGE / 100.0f);
 
         //바다로 교체할 타일의 정보를 리스트 형태로 생성해서 섞는다.
@@ -93,7 +94,7 @@ public class TerrainMap : TileMapController
                     break;
             }   //switch: 지형별로 다른 설정을 한다.
 
-            // TODO: tempTerrain Setup 함수 필요함.
+            tempTerrain.SetupTerrain(mapController, terrainType, loopCnt);
             tempTerrain.transform.SetAsFirstSibling();
             allTerrains.Add(tempTerrain);
             loopCnt += 1;
